@@ -1,0 +1,112 @@
+<div class="pull-right">See also <a ng-href="#/search">Complex Queries</a></div>
+<h2>Pattern Queries</h2>
+
+<!-- query 1 --->
+<div class="panel panel-default">
+    <div class="panel-heading">Most popular programming language by zip code</div>
+    <div class="panel-body">
+        <form>
+
+            <div class="row">
+                <div class="form-group col-xs-6 col-md-3">
+                    <label for="zipCode">Zip Code</label>
+                    <input type="text" ng-model="zipCode"class="form-control" placeholder="Enter Zip Code">
+                </div>
+            </div> 
+            <button ng-click="searchPatternOne()" type="button" class="btn btn-primary">Search</button>
+        </form>
+        <br/>
+        <div class="alert alert-info">
+            Result: {{resultPatternOne.result}}
+        </div>
+
+    </div>
+</div>
+
+
+<!-- query 2 --->
+<div class="panel panel-default">
+    <div class="panel-heading">Most popular framework by Zip Code</div>
+    <div class="panel-body">
+        <form>
+            <div class="row">
+                <div class="form-group col-xs-6 col-md-3">
+                    <label for="zipCode">Zip Code</label>
+                    <input type="text" ng-model="zipCode2" class="form-control" placeholder="Enter Zip Code">
+                </div>
+            </div> 
+            <button ng-click="searchPatternTwo()" type="button" class="btn btn-primary">Search</button>
+        </form>
+        <br/>
+        <div class="alert alert-info">
+            Result: {{resultPatternTwo.result}}
+        </div>
+
+    </div>
+</div>
+
+
+<!-- query 3 --->
+<div class="panel panel-default">
+    <div class="panel-heading">Most jobs in that state for the given language</div>
+    <div class="panel-body">
+        <form>
+            <div class="row">
+                <div class="form-group col-md-3 col-xs-6">
+
+                    <label for="state">State</label><br>
+                    <select name="state" ng-model="state3">
+                        <option ng-repeat="item in states" value="{{item.state}}">{{item.state}}</option>
+                    </select>
+                </div>
+            </div>   
+            <div class="row">
+                <div class="form-group col-xs-6 col-md-3">
+                    <label for="tech3"> Technology</label><br>
+                    <select name="tech3" ng-model="tech3">
+                        <option ng-repeat="tech in techs" value="{{tech.name}}">{{tech.name}}</option>
+                    </select>
+                </div>
+
+
+            </div>
+
+
+            <button ng-click="searchPatternThree()" type="button" class="btn btn-primary">Search</button>
+        </form>
+        <br/>
+        <div class="alert alert-info">
+            Result: {{resultPatternThree.result}}
+        </div>
+
+    </div>
+</div>
+
+
+
+<!-- query 4 --->
+<div class="panel panel-default">
+    <div class="panel-heading">State with the most jobs for the given technology</div>
+    <div class="panel-body">
+        <form>
+            <div class="row">
+                <div class="form-group col-xs-6 col-md-3">
+                    <label for="tech4">Technology</label><br>
+                    <select name="tech4" ng-model="tech4">
+                        <option ng-repeat="tech in techs" value="{{tech.name}}">{{tech.name}}</option>
+                    </select>
+                </div>
+
+
+            </div>
+
+
+            <button ng-click="searchPatternFour()" type="button" class="btn btn-primary">Search</button>
+        </form>
+        <br/>
+        <div class="alert alert-info">
+            Result: {{resultPatternFour.result}}
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,257 @@
+
+<div class="pull-right">See also <a ng-href="#/patternqueries">Pattern Queries</a></div>
+<h2>Complex Queries</h2>
+
+
+<!-- Given two technologies, a city, and a state, this method returns which of the two technologies has
+	 the most jobs in the specified city as well as the number of jobs available for that technology -->
+<div class="panel panel-default">
+    <div class="panel-heading">Most Popular Of Two Technologies by City</div>
+    <div class="panel-body">
+        <form>
+
+            <div class="row">
+
+                <div class="form-group col-md-3 col-xs-6">
+
+                    <label for="state">State</label><br>
+                    <select ng-change="getCities()" name="state" ng-model="state">
+                        <option ng-repeat="item in states" value="{{item.state}}">{{item.state}}</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group col-md-3 col-xs-6">
+
+                    <label for="city">City</label><br>
+                    <select name="city" ng-model="city">
+                        <option ng-repeat="item in cities" value="{{item.city}}">{{item.city}}</option>
+                    </select>
+                </div>
+            </div> 
+
+            <div class="row">
+                <div class="form-group col-xs-6 col-md-3">
+                    <label for="techOne"> Technology 1 </label><br>
+                    <select name="techOne" ng-model="techOne">
+                        <option ng-repeat="tech in techs" value="{{tech.name}}">{{tech.name}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-xs-6 col-md-3">
+
+                    <label for="techTwo"> Technology 2 </label><br>
+                    <select name="techTwo" ng-model="techTwo">
+                        <option ng-repeat="tech in techs" value="{{tech.name}}">{{tech.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <button ng-click="searchOne()" type="button" class="btn btn-primary">Search</button>
+        </form>
+        <br/>
+        <div class="alert alert-info">
+            Result: {{resultOne.result}}
+        </div>
+
+    </div>
+</div>
+
+<!-- Given two technologies and a zipcode this method returns which of the two technologies has
+	the most jobs in the specified zipcode as well as the number of jobs available for that technology.-->
+<div class="panel panel-default">
+    <div class="panel-heading">Most Popular Of Two Technologies by Zip Code</div>
+    <div class="panel-body">
+        <form>
+
+            <div class="row">
+                <div class="form-group col-xs-6 col-md-3">
+                    <label for="zipCode">Zip Code</label>
+                    <input type="text" ng-model="zipCode"class="form-control" placeholder="Enter Zip Code">
+                </div>
+                
+            </div> 
+
+            <div class="row">
+                <div class="form-group col-xs-6 col-md-3">
+                    <label for="techOneZip"> Technology 1 </label><br>
+                    <select name="techOneZip" ng-model="techOneZip">
+                        <option ng-repeat="tech in techs" value="{{tech.name}}">{{tech.name}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-xs-6 col-md-3">
+
+                    <label for="techTwoZip"> Technology 2 </label><br>
+                    <select name="techTwoZip" ng-model="techTwoZip">
+                        <option ng-repeat="tech in techs" value="{{tech.name}}">{{tech.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <button ng-click="searchTwo()" type="button" class="btn btn-primary">Search</button>
+        </form>
+        <br/>
+        <div class="alert alert-info">
+            Result: {{resultTwo.result}}
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Given two cities and states and a technology, this method returns which of the two cities
+	 has the most job openings for the given technology as well as the number of jobs for that technology.
+	 -->
+<div class="panel panel-default">
+    <div class="panel-heading">Which of Two Cities has the most job openings for a Technology</div>
+    <div class="panel-body">
+        <form>
+
+             <div class="row">
+
+                <div class="form-group col-md-3 col-xs-6">
+
+                    <label for="stateOne">State</label><br>
+                    <select ng-change="getCitiesOne()" name="stateOne" ng-model="stateOne">
+                        <option ng-repeat="item in states" value="{{item.state}}">{{item.state}}</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group col-md-3 col-xs-6">
+
+                    <label for="cityOne">City 1</label><br>
+                    <select name="cityOne" ng-model="cityOne">
+                        <option ng-repeat="item in citiesOne" value="{{item.city}}">{{item.city}}</option>
+                    </select>
+                </div>
+            </div> 
+            
+             <div class="row">
+
+                <div class="form-group col-md-3 col-xs-6">
+
+                    <label for="stateTwo">State</label><br>
+                    <select ng-change="getCitiesTwo()" name="stateTwo" ng-model="stateTwo">
+                        <option ng-repeat="item in states" value="{{item.state}}">{{item.state}}</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group col-md-3 col-xs-6">
+
+                    <label for="cityTwo">City 2</label><br>
+                    <select name="cityTwo" ng-model="cityTwo">
+                        <option ng-repeat="item in citiesTwo" value="{{item.city}}">{{item.city}}</option>
+                    </select>
+                </div>
+            </div> 
+            
+            <div class="row">
+             <div class="form-group col-xs-6 col-md-3">
+                    <label for="techThird"> Technology</label><br>
+                    <select name="techThird" ng-model="techThird">
+                        <option ng-repeat="tech in techs" value="{{tech.name}}">{{tech.name}}</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button ng-click="searchThree()" type="button" class="btn btn-primary">Search</button>
+        </form>
+        <br/>
+        <div class="alert alert-info">
+            Result: {{resultThree.result}}
+        </div>
+
+    </div>
+</div>
+
+
+<!--Given a programming language, city, and state, this method returns the framework with the most job openings
+	 associated with the given language in the specified city, state combo. --->
+<div class="panel panel-default">
+    <div class="panel-heading">The framework with the most job openings
+	 associated with the given language in the specified city</div>
+    <div class="panel-body">
+        <form>
+            <div class="row">
+             <div class="form-group col-xs-6 col-md-3">
+                    <label for="techFouth"> Technology</label><br>
+                    <select name="techFouth" ng-model="techFouth">
+                        <option ng-repeat="tech in techs" value="{{tech.name}}">{{tech.name}}</option>
+                    </select>
+                </div>
+            </div>
+            
+             <div class="row">
+                <div class="form-group col-md-3 col-xs-6">
+                    <label for="stateFourth">State</label><br>
+                    <select ng-change="getCitiesFourth()" name="stateFourth" ng-model="stateFourth">
+                        <option ng-repeat="item in states" value="{{item.state}}">{{item.state}}</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group col-md-3 col-xs-6">
+
+                    <label for="cityFourth">City</label><br>
+                    <select name="cityFourth" ng-model="cityFourth">
+                        <option ng-repeat="item in citiesFourth" value="{{item.city}}">{{item.city}}</option>
+                    </select>
+                </div>
+            </div> 
+            
+       
+            
+            <button ng-click="searchFourth()" type="button" class="btn btn-primary">Search</button>
+        </form>
+        <br/>
+        <div class="alert alert-info">
+            Result: {{resultFourth.result}}
+        </div>
+
+    </div>
+</div>
+
+
+<!-- all cities in the specified state
+	 * with at least the specified number of jobs for the given technology -->
+
+<div class="panel panel-default">
+    <div class="panel-heading">All cities in the specified state with at least the specified number of jobs for the given technology</div>
+    <div class="panel-body">
+        <form>
+            <div class="row">
+             <div class="form-group col-xs-6 col-md-3">
+                    <label for="techFifth"> Technology</label><br>
+                    <select name="techFifth" ng-model="techFifth">
+                        <option ng-repeat="tech in techs" value="{{tech.name}}">{{tech.name}}</option>
+                    </select>
+                </div>
+            </div>
+            
+             <div class="row">
+                <div class="form-group col-md-3 col-xs-6">
+                    <label for="stateFifth">State</label><br>
+                    <select  name="stateFifth" ng-model="stateFifth">
+                        <option ng-repeat="item in states" value="{{item.state}}">{{item.state}}</option>
+                    </select>
+                </div>
+            </div> 
+            <div class="row">
+                <div class="form-group col-xs-6 col-md-3">
+                    <label for="numJobs">Number of Jobs</label>
+                    <input type="text" ng-model="numJobs"class="form-control" placeholder="Enter Number of Jobs">
+                </div>
+                
+            </div> 
+       
+            
+            <button ng-click="searchFifth()" type="button" class="btn btn-primary">Search</button>
+        </form>
+        <br/>
+        <div class="alert alert-info">
+            Result: {{resultFifth.result}}
+        </div>
+
+    </div>
+</div>

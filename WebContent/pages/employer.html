@@ -1,0 +1,93 @@
+<div class="pull-right"><a ng-href="#/logout">Log out</a></div>
+<h2>Welcome {{currentUser.username}}! </h2>
+<h4>You added the following Job Opportunities</h4>
+
+
+<table  class="table table-bordered table-hover bg-info table-striped">
+    <thead>
+        <tr>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip Code</th>
+            <th>Technology</th>
+         <!--   <th>Options</th> -->
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="job in jobList">
+            <td>{{job.city}}</td>
+            <td>{{job.state}}</td>
+            <td>{{job.zipcode}}</td>
+            <td>{{job.techs}}</td>
+       <!--     <td><button ng-click="deleteJob(job.)" type="button" class="btn btn-success">Delete</button></td> -->
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Number of jobs: {{jobListSize}}</th>
+        </tr>
+    </tfoot>
+</table>
+<div class="panel panel-default">
+    <div class="panel-heading">Add a New Job Opportunity</div>
+    <div class="panel-body">
+        <form>
+            <!-- <div class="row">
+
+               <div class="form-group col-md-3 col-xs-4">
+
+                    <label for="state">State</label><br>
+                    <select ng-change="getCities()" name="state" ng-model="state">
+                        <option ng-repeat="item in states" value="{{item.state}}">{{item.state}}</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group col-md-3 col-xs-4">
+
+                    <label for="city">City</label><br>
+                    <select name="city" ng-model="city">
+                        <option ng-repeat="item in cities" value="{{item.city}}">{{item.city}}</option>
+                    </select>
+                </div>
+            </div>  --->
+            <div class="row">
+                <div class="form-group col-xs-6 col-md-3">
+                    <label for="zipCode">Zip Code</label>
+                    <input type="text" ng-model="zipCode"class="form-control" placeholder="Enter Zip Code">
+                </div>
+                
+            </div> 
+
+            <div class="row">
+                <div class="form-group col-md-3 col-xs-4">
+                    <label for="tech">Technology</label><br>
+                    <select multiple="multiple" name="tech" ng-model="tech">
+                        <option ng-repeat="tech in techs" value="{{tech.name}}">{{tech.name}}</option>
+                    </select>
+                    <p>Hold Ctrl key to multi-select</p>
+                </div>
+            </div>
+            <button ng-click="addJob()" type="button" class="btn btn-primary">Add Job</button>
+        </form>
+
+        
+            
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">My account</div>
+    <div class="panel-body">
+        <form>
+            <button ng-click="deleteAccount()" type="button" class="btn btn-danger">Delete account</button>
+        </form>
+
+    </div>
+</div>
